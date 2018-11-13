@@ -1,0 +1,4 @@
+<div style="font: arial; font-size: 16px;">Hi, <br /><br />Job Name: JOB_NAME</div>
+<div style="font: arial; font-size: 16px;">Job Run Time: JOB_RUN_TIME&nbsp;</div>
+<div style="font: arial; font-size: 16px;"></div>
+<div style="font: arial; font-size: 16px;">Error in execution of job.<br /><br /> Thank you</div>
