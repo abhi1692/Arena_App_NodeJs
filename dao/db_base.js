@@ -21,14 +21,19 @@ const reconnectOptions = {
 // 	port: dbConfig.port
 // });
 
-const sequelize = new Sequelize('Arena', 'sa', 'root', {
-	server: 'DESKTOP-BQRG3KO\\SQLEXPRESS',
-	port: '1433',
-	dialect: "mssql",
-	dialectOptions: {
-		instanceName: "SQLEXPRESS"
-	}
+// const sequelize = new Sequelize('arena1', 'arena1', 'By0WnpnmBF_-', {
+// 	host: 'den1.mssql7.gear.host',
+// 	port: '1433',
+// 	dialect: "mssql",
+// 	dialectOptions: {
+// 		instanceName: "SQLEXPRESS"
+// 	}
 
+// });
+
+const sequelize = new Sequelize("arena1", "arena1", "By0WnpnmBF_-", {
+	host: "den1.mssql7.gear.host",
+	dialect: "mssql"
 });
 
 

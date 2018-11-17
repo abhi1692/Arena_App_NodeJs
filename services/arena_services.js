@@ -11,7 +11,7 @@ ArenaService.prototype.validateUser = async (req, res) => {
         let result = await new ArenaDao().getUserOnEmailID(userName);
         if (result) {
             if (result.length > 0) {
-                if (result[0].password === userPassword) {
+                if (result[0].pd_password === userPassword) {
                     res.send({
                         message: Constants.userAuthenticationSuccess
                     });
@@ -39,15 +39,15 @@ ArenaService.prototype.registerUser = async (req, res) => {
     try {
         let userDetails = req.body;
         let result = await new ArenaDao().createUser(userDetails);
-        let userLoginObject ={
-            user_id : result.id,
-            username : result.email_id,
-            password : userDetails.password,
-            created_by : result.email_id,
-            updated_by : result.email_id
-        }
-        
-        let loginUserResuly = await new ArenaDao().createentryInUserLogin(userLoginObject);
+        // let userLoginObject = {
+        //     user_id: result.id,
+        //     username: result.email_id,
+        //     password: userDetails.password,
+        //     created_by: result.email_id,
+        //     updated_by: result.email_id
+        // }
+
+        // let loginUserResuly = await new ArenaDao().createentryInUserLogin(userLoginObject);
 
         res.send({
             message: Constants.userRegisterSuccessFully
@@ -57,6 +57,10 @@ ArenaService.prototype.registerUser = async (req, res) => {
         if (error.name === "SequelizeUniqueConstraintError") {
             res.send({
                 message: Constants.emailMustBeUnique
+            });
+        } else {
+            res.send({
+                message: "Something wrong with database"
             });
         }
     }
